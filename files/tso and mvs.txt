@@ -1,0 +1,95 @@
+                                                            MVS AND TSO 
+
+VIEWING DATA SETS :
+
+* list all the data sets by giving user id and batch number :
+- go to tso and in the command line enter 3 and goto utilities
+- inside utilities press 4 and go to data set list
+- give the necessary user id and batch and press '*' and enter 
+
+* view the properties of data set :
+- go to tso and in the command line enter 3 and goto utilities
+- inside utilities press 4 and go to data set list
+- give the necessary user id and batch and press '*' and enter 
+- at the left hand side of any data set press 's' and enter 
+
+ALLOCATING AND EDITING THE DATASET :
+
+* create a pds with 155 tracks and record lenght as 80
+- press 3.2 in the command line and give the information for project , group , type 
+- press A in the command line and enter
+- give space units as tracks 
+- primary quantity as ---
+- secondary quantity as ----
+- directory block >0
+- record format as FB
+- record length as 80
+- block size as 155
+- data set name type PDS
+
+* create a pds with 100 tracks and record lenght as 40
+- press 3.2 in the command line and give the information for project , group , type 
+- press A in the command line and enter
+- give space units as tracks 
+- primary quantity as ---
+- secondary quantity as ----
+- directory block >0
+- record format as FB
+- record length as 40
+- block size as 100
+- data set name type PDS
+
+* create a pds with 4 members record lenght as 40
+- press 3.2 in the command line and give the information for project , group , type 
+- press A in the command line and enter
+- give space units as tracks 
+- primary quantity as ---
+- secondary quantity as ----
+- directory block as 4
+- record format as FB
+- record length as 40
+- block size as 100
+- data set name type PDS
+
+* create a pds with 11 members and record lenght as 80
+- press 3.2 in the command line and give the information for project , group , type 
+- press A in the command line and enter
+- give space units as tracks 
+- primary quantity as ---
+- secondary quantity as ----
+- directory block as 11
+- record format as FB
+- record length as 80
+- block size as 100
+- data set name type PDS
+
+COPY OR MOVE AND DATA SET LIST UTILITY :
+
+*copy members from one data set to another :
+- press 3.2 and enter the name and member of the data set to be copied
+- press 'C' and enter in the command line 
+- and again the the name of the destination dataset
+
+* working with ps:
+- after completing the instructions : 
+
+ 000200 09871 SUDHIR SALES 32000 2010-12-20 98333598744                        
+ 000300 10021 YUVA   MANUFACT 50000 2010-12-20 9843598445                      
+ 000310 10544 SANJIV SALES 23400 2010-12-20 8843595565                         
+ 000311 10544 SANJIV SALES 23400 2010-12-20 8843595565                         
+ 000312 10544 SANJIV SALES 23400 2010-12-20 8843595565                         
+ 000313 10544 SANJIV SALES 23400 2010-12-20 8843595565                         
+ 000320 10654 RAHULOHAN ACCOUNT 23400 2010-12-20 7744598765                    
+ 000330 10544 SANJIV SALES 23400 2010-12-20 8843595565                         
+ 000340 10544 SANJIV SALES 23400 2010-12-20 8843595565                         
+ 000350 10544 SANJIV SALES 23400 2010-12-20 8843595565                         
+ 000400 10057 RAHULANI ACCOUNT 35000 2010-12-20 7844598765                     
+ 000500 10123 XYZ MANUFACT 30000 2010-12-20 8843595565                         
+ 000510 10021 YUVA   MANUFACT 50000 2010-12-20 9843598445                      
+ 000520 10544 SANJIV SALES 23400 2010-12-20 8843595565                         
+ 000530 10544 SANJIV SALES 23400 2010-12-20 8843595565 10544 SANJIV SALES 23400
+ 000540 2010-12-20 8843595565 10544 SANJIV SALES 23400 2010-12-20 8843595565   
+ 000550 10654 RAHULOHAN ACCOUNT 23400 2010-12-20 7744598765 10057 RAHULANI     
+ 000560 ACCOUNT 35000 2010-12-20 7844598765 10123 XYZ MANUFACT 30000 2010-12-20
+ 000570 8843595565 10244 UMA MANUFACT 30000 2010-12-20 9234598765 09871 SUDHIR 
+ - - -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  1 Line(s) not Displayed

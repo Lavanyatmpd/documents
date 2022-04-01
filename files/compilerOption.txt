@@ -1,0 +1,32 @@
+Ans 1:-DATA DIVISION.
+WORKING-STORAGE SECTION.
+77  PGM-NAME                   PICTURE X(8).
+01  RECORD-2                   PIC x.              
+01  RECORD-1.                                      
+    05  PAY                    PICTURE S9(5)V99.
+    05  HOURLY-RATE            PICTURE S9V99.
+    05  HOURS                  PICTURE S99V9.
+PROCEDURE DIVISION.
+    MOVE "SUBPROG" TO PGM-NAME.
+    CALL PGM-NAME USING RECORD-1.                  
+    CANCEL PGM-NAME.
+    MOVE "PAYMASTR" TO PGM-NAME.                  
+    CALL PGM-NAME USING RECORD-1 RECORD-2.         
+    STOP RUN.
+
+Ans 2:--DATA DIVISION.
+WORKING-STORAGE SECTION.
+77  PGM-NAME                   PICTURE X(8).
+01  RECORD-2                   PIC x.              
+01  RECORD-1.                                      
+    05  PAY                    PICTURE S9(5)V99.
+    05  HOURLY-RATE            PICTURE S9V99.
+    05  HOURS                  PICTURE S99V9.
+PROCEDURE DIVISION.
+    MOVE "SUBPROG" TO PGM-NAME.
+    CALL PGM-NAME USING RECORD-1.                  
+    CANCEL PGM-NAME.
+    MOVE "PAYMASTR" TO PGM-NAME.                  
+    CALL PGM-NAME USING RECORD-1 RECORD-2.         
+    STOP RUN.
+//RUN EXEC PGM=MYPROG,PARM='/NOSSRANGE'

@@ -1,0 +1,28 @@
+Ans 1:-ENTRY
+Examine
+VERIFY
+
+Ans 2:-//SAMPLE JOB(TESTJCL,XXXXXX),CLASS = A,MSGCLASS = C
+//STEP1  EXEC PGM = IDCAMS
+//SYSPRINT DD  SYSOUT = *
+//SYSIN DD  *
+   VERIFY DS(MY.VSAM.KSDSFILE)                                  
+/*
+
+Ans 3:-//SAMPLE JOB(TESTJCL,XXXXXX),CLASS = A,MSGCLASS = C
+//STEP1  EXEC PGM = IDCAMS
+//SYSPRINT DD  SYSOUT = *
+//SYSIN DD  *
+   VERIFY DS(MY.VSAM.KSDSFILE)                                  
+/*
+
+Verify command is used to check and fix VSAM files which have not been closed properly after an error. The command adds correct End-Of-Data records to the file.
+If you will execute the above JCL on Mainframes server. It should execute with MAXCC = 0 and it will fix the errors in VSAM dataset.
+
+Ans 4:-//SAMPLE JOB(TESTJCL,XXXXXX),CLASS = A,MSGCLASS = C
+//STEP1  EXEC PGM = IDCAMS
+//SYSPRINT DD  SYSOUT = *
+//SYSIN DD  *
+   LISTCAT ENTRY(MY.VSAM.KSDSFILE) 
+   ALL 
+/*

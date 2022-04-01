@@ -1,0 +1,32 @@
+Ans 1:-//SAMPLE JOB(TESTJCL,XXXXXX),CLASS = A,MSGCLASS = C
+//STEP1  EXEC PGM = IDCAMS
+//SYSPRINT DD  SYSOUT = *
+//SYSIN    DD  *
+   DEFINE AIX (NAME(MY.VSAM.KSDSAIX)      -
+   RELATE(MY.VSAM.KSDSFILE)               -
+   CISZ(4096)                             -
+   FREESPACE(20,20)                       -
+   KEYS(20,7)                             -
+   NONUNIQUEKEY                           -
+   UPGRADE                                -
+   RECORDSIZE(80,80))                     -
+   DATA(NAME(MY.VSAM.KSDSAIX.DATA))       -
+   INDEX(NAME(MY.VSAM.KSDSAIX.INDEX))
+/*
+
+Ans 2:-//SAMPLE JOB(TESTJCL,XXXXXX),CLASS = A,MSGCLASS = C
+//STEP1  EXEC PGM = IDCAMS
+//SYSPRINT DD  SYSOUT = *
+//SYSIN    DD  *
+   DEFINE AIX (NAME(MY.VSAM.KSDSAIX)      -
+   RELATE(MY.VSAM.KSDSFILE)               -
+   CISZ(4096)                             -
+   FREESPACE(20,20)                       -
+   KEYS(20,7)                             -
+   NONUNIQUEKEY                           -
+   UPGRADE                                -
+   RECORDSIZE(80,80))                     -
+   DATA(NAME(MY.VSAM.KSDSAIX.DATA))       -
+   INDEX(NAME(MY.VSAM.KSDSAIX.INDEX))
+/*
+YES.

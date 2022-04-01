@@ -1,0 +1,98 @@
+Ans 1:- IDENTIFICATION DIVISION.                                   
+       PROGRAM-ID. PRG25.                                         
+       ENVIRONMENT DIVISION.                                      
+       DATA DIVISION.                                             
+       WORKING-STORAGE SECTION.                                   
+       01 MAX-NUM.                                                
+           05 NUM        PIC 9(2) OCCURS 5 TIMES.                 
+       77 IDX            PIC 9(2) VALUE 1.                        
+       77 TOTAL          PIC 9(2) VALUE 0.                        
+       PROCEDURE DIVISION.                                        
+       MAIN-PARA.                                                 
+           PERFORM ACCEPT-PARA.                                   
+           PERFORM COMP-PARA.                                     
+           STOP RUN.                                              
+       ACCEPT-PARA.                                               
+           PERFORM VARYING IDX FROM 1 BY 1 UNTIL IDX > 5 
+
+Ans 2:- IDENTIFICATION DIVISION.                                      
+       PROGRAM-ID. PRG25.                                            
+       ENVIRONMENT DIVISION.                                         
+       DATA DIVISION.                                                
+       WORKING-STORAGE SECTION.                                      
+       01 MAX-NUM.                                                   
+           05 NUM        PIC 9(2) OCCURS 50 TIMES.                   
+       77 IDX            PIC 9(2) VALUE 1.                           
+       77 REM            PIC 9(2).                                   
+       77 QUO            PIC 9(2).                                   
+       PROCEDURE DIVISION.                                           
+       MAIN-PARA.                                                    
+           PERFORM ACCEPT-PARA.                                      
+           PERFORM COMP-PARA.                                        
+           STOP RUN.                                                 
+       ACCEPT-PARA.                                                  
+           PERFORM VARYING IDX FROM 1 BY 1 UNTIL IDX > 50            
+              ACCEPT NUM(IDX)                                       
+           END-PERFORM.                                             
+       COMP-PARA.                                                   
+           PERFORM VARYING IDX FROM 1 BY 1 UNTIL IDX > 50            
+              DIVIDE0D NUM(IDX) BY 3 HAVING QUO REMAINDER REM        
+              IF REM = 0                                            
+                 DISPLAY NUM(IDX)                                   
+              END-IF                                                
+           END-PERFORM.                                             
+           DISPLAY TOTAL.
+
+Ans 3:- IDENTIFICATION DIVISION.                                       
+       PROGRAM-ID. PRG25.                                             
+       ENVIRONMENT DIVISION.                                          
+       DATA DIVISION.                                                 
+       WORKING-STORAGE SECTION.                                       
+       01 MAX-NUM.                                                    
+           05 NUM        PIC 9(2) OCCURS 5 TIMES.                     
+       77 IDX            PIC 9(2) VALUE 1.                            
+       77 MAX            PIC 9(2) VALUE 0.                            
+       PROCEDURE DIVISION.                                            
+       MAIN-PARA.                                                     
+           PERFORM ACCEPT-PARA.                                       
+           PERFORM COMP-PARA.                                         
+           STOP RUN.                                                  
+       ACCEPT-PARA.                                                   
+           PERFORM VARYING IDX FROM 1 BY 1 UNTIL IDX > 5              
+              ACCEPT NUM(IDX)                                         
+           END-PERFORM.                                               
+       COMP-PARA.                                                     
+           PERFORM VARYING IDX FROM 1 BY 1 UNTIL IDX > 5              
+              IF NUM(IDX) > MAX                                       
+                 MOVE NUM(IDX) TO MAX                                 
+              END-IF                                                  
+           END-PERFORM.                                               
+           DISPLAY MAX.
+
+Ans 4:- IDENTIFICATION DIVISION.                                    
+       PROGRAM-ID. PRG25.                                          
+       ENVIRONMENT DIVISION.                                       
+       DATA DIVISION.                                              
+       WORKING-STORAGE SECTION.                                    
+       01 EVEN-ODD.                                                
+           05 NUM        PIC 9(1) OCCURS 100 TIMES.                
+       77 SUM-EVEN       PIC 9(4) VALUE 0.                         
+       77 SUM-ODD        PIC 9(4) VALUE 0.                         
+       77 IDX            PIC 9(3) VALUE 1.                         
+       77 QUO            PIC 9(3).                                 
+       77 REM            PIC 9(3).                                 
+       PROCEDURE DIVISION.                                         
+       MAIN-PARA.                                                  
+            PERFORM COMP-PARA.                                   
+            STOP RUN.                                            
+        COMP-PARA.                                               
+            PERFORM VARYING IDX FROM 1 BY 1 UNTIL IDX > 100      
+               DIVIDE IDX BY 2 GIVING QUO REMAINDER REM          
+               IF REM = 0                                        
+                  COMPUTE SUM-EVEN = SUM-EVEN + IDX              
+               ELSE                                              
+                  COMPUTE SUM-ODD = SUM-ODD  + IDX               
+               END-IF                                            
+            END-PERFORM.                                         
+            DISPLAY "SUM EVEN" SUM-EVEN.                         
+            DISPLAY "SUM ODD" SUM-ODD.                                      

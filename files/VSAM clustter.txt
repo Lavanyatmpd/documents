@@ -1,0 +1,56 @@
+Ans 1:-//SAMPLE JOB(TESTJCL,XXXXXX),CLASS = A,MSGCLASS = C
+//STEP1  EXEC PGM = IDCAMS
+//SYSPRINT DD  SYSOUT = *
+//SYSIN    DD  *
+   DEFINE CLUSTER (NAME(MY.VSAM.ESDSFILE)  -
+   NONINDEXED                              -
+   RECSZ(80 80)                            -
+   TRACKS(1,1)                             -
+   CISZ(4096)                              -                            
+   FREESPACE(3 3) )                        -
+   DATA (NAME(MY.VSAM.ESDSFILE.DATA))      
+/*
+
+Ans 2:-//SAMPLE JOB(TESTJCL,XXXXXX),CLASS = A,MSGCLASS = C
+//STEP1  EXEC PGM = IDCAMS
+//SYSPRINT DD  SYSOUT = *
+//SYSIN    DD  *
+   DEFINE CLUSTER (NAME(MY.VSAM.RRDSFILE)  -
+   NUMBERED                                -
+   RECSZ(80 80)                            -
+   TRACKS(1,1)                             -
+   REUSE                                   - 
+   FREESPACE(3 3) )                        -
+   DATA (NAME(MY.VSAM.RRDSFILE.DATA))      
+/*
+
+Ans 3:-//SAMPLE JOB(TESTJCL,XXXXXX),CLASS = A,MSGCLASS = C
+//STEP1  EXEC PGM = IDCAMS
+//SYSPRINT DD  SYSOUT = *
+//SYSIN    DD  *
+   DEFINE CLUSTER (NAME(MY.VSAM.KSDSFILE)  -
+   INDEXED                                 -
+   KEYS(6 1)	                           -	
+   RECSZ(80 80)                            -
+   TRACKS(1,1)                             -
+   CISZ(4096)                              -                            
+   FREESPACE(3 3) )                        -
+   DATA (NAME(MY.VSAM.KSDSFILE.DATA))      -
+   INDEX (NAME(MY.VSAM.KSDSFILE.INDEX))    -
+/*
+
+Ans 4:-REUSE parameter allows clusters to be defined that may be reset to empty status without deleting and re-defining them.
+     //SAMPLE JOB(TESTJCL,XXXXXX),CLASS = A,MSGCLASS = C
+//STEP1  EXEC PGM = IDCAMS
+//SYSPRINT DD  SYSOUT = *
+//SYSIN    DD  *
+   DEFINE CLUSTER (NAME(MY.VSAM.KSDSFILE)  -
+   INDEXED                                 -
+   RECSZ(80 80)                            -
+   TRACKS(1,1)                             -
+   KEYS(5  0)                              -
+   CISZ(4096)                              -                            
+   FREESPACE(3 3) )                        -
+   DATA (NAME(MY.VSAM.KSDSFILE.DATA))      -
+   INDEX (NAME(MY.VSAM.KSDSFILE.INDEX))
+/*
